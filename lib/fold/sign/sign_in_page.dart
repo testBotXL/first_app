@@ -1,3 +1,4 @@
+import 'package:first_app/common_widgets/custom_raised_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,31 +19,42 @@ class SignInPage extends StatelessWidget {
         ),
         elevation: 15.0,
       ),
-      body: Container(
-        color: Colors.blueAccent,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Container(
-              color: Colors.black,
-              child: SizedBox(
-                height: 75.0,
+      body: _buildContent(),
+      backgroundColor: Colors.grey[400],
+    );
+  }
+
+  Widget _buildContent() {
+    return Padding(
+      padding: EdgeInsets.all(60.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Text(
+            'Track Vehicle',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 25.0,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+          SizedBox(height: 15.0),
+          CustomRaisedButton(
+            child: Text(
+              'Track Vehicle',
+              style: TextStyle(
+                color: Colors.black87,
+                fontSize: 15.0,
               ),
             ),
-            Container(
-              color: Colors.red,
-              child: SizedBox(
-                height: 75.0,
-              ),
-            ),
-            Container(
-              color: Colors.yellow,
-              child: SizedBox(
-                height: 75.0,
-              ),
-            ),
-          ],
-        ),
+            color: Colors.blueAccent,
+            borderRadius: 6.0,
+            onPressed: () {},
+
+          ),
+
+        ],
       ),
     );
   }
