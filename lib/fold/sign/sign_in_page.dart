@@ -1,4 +1,5 @@
 import 'package:first_app/common_widgets/custom_raised_button.dart';
+import 'package:first_app/fold/sign/sign_in_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,20 +9,25 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar:
+       AppBar(
+
+
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('Vehicle Tracker'))
+                child: Text('Vehicle Tracker'), alignment: Alignment.center, )
           ],
         ),
         elevation: 15.0,
+        leading: Image.asset('images/just.png'),
       ),
+
       body: _buildContent(),
       backgroundColor: Colors.grey[400],
-    );
+      );
   }
 
   Widget _buildContent() {
@@ -31,28 +37,42 @@ class SignInPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Text(
+          /*Text(
             'Track Vehicle',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 25.0,
               fontWeight: FontWeight.w800,
             ),
-          ),
+          ),*/
           SizedBox(height: 15.0),
-          CustomRaisedButton(
-            child: Text(
-              'Track Vehicle',
-              style: TextStyle(
-                color: Colors.black87,
-                fontSize: 15.0,
-              ),
-            ),
+          SignInButton(
+            text: 'Track Vehicle',
+            textColor: Colors.black87,
             color: Colors.blueAccent,
-            borderRadius: 6.0,
+
             onPressed: () {},
 
           ),
+          SizedBox(height: 18.0),
+          SignInButton(
+            text: 'Registration',
+            textColor: Colors.black87,
+            color: Colors.blueAccent,
+
+            onPressed: () {},
+
+          ),
+          SizedBox(height: 18.0),
+          SignInButton(
+            text: 'Reservation',
+            textColor: Colors.black87,
+            color: Colors.blueAccent,
+
+            onPressed: () {},
+
+          ),
+
 
         ],
       ),
