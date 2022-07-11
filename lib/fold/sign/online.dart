@@ -1,4 +1,5 @@
 import 'package:first_app/common_widgets/custom_raised_button.dart';
+import 'package:first_app/fold/sign/ofvlist.dart';
 import 'package:first_app/fold/sign/ovlist.dart';
 import 'package:first_app/fold/sign/sign_in_button.dart';
 import 'package:flutter/cupertino.dart';
@@ -59,7 +60,9 @@ class Online extends StatelessWidget {
     textColor: Colors.black87,
     color: Colors.blueAccent,
 
-    onPressed: () {},
+    onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => OffVehicle()),);
+    },
 
     ),
     SizedBox(height: 18.0),
