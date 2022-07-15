@@ -29,16 +29,25 @@ class Result extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              model.firstName,
+              model.IDno,
               style: TextStyle(fontSize: 22),
             ),Text(
-              model.lastName,
+              model.vehicletype1,
               style: TextStyle(fontSize: 22),
             ),Text(
-              model.email,
+              model.vehicletype2,
               style: TextStyle(fontSize: 22),
             ),Text(
-              model.password,
+              model.time,
+              style: TextStyle(fontSize: 22),
+            ),Text(
+              model.route1,
+              style: TextStyle(fontSize: 22),
+            ),Text(
+              model.route2,
+              style: TextStyle(fontSize: 22),
+            ),Text(
+              model.purpose,
               style: TextStyle(fontSize: 22),
             ),
           ],

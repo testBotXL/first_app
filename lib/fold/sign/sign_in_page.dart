@@ -1,6 +1,6 @@
 import 'package:first_app/common_widgets/custom_raised_button.dart';
 import 'package:first_app/fold/sign/registration.dart';
-import 'package:first_app/fold/sign/reservation.dart';
+
 import 'package:first_app/fold/sign/reserve.dart';
 import 'package:first_app/fold/sign/sign_in_button.dart';
 import 'package:flutter/cupertino.dart';

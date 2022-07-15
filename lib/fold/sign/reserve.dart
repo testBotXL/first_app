@@ -45,7 +45,7 @@ class TestForm extends StatefulWidget {
 
 class _TestFormState extends State<TestForm> {
   final _formKey =GlobalKey<FormState>();
-  Model model = Model(lastName: '', firstName: '', password: '', email: '');
+  Model model = Model(IDno: '', vehicletype1: '' , vehicletype2: ' ', time: ' ', route1: '', route2: '', purpose: '',);
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,7 @@ class _TestFormState extends State<TestForm> {
                     return null;
                   },
                   onSaved: (String value){
-                    model.firstName = value;
+                    model.IDno = value;
                   },
                 ),
               ),
@@ -100,7 +100,7 @@ class _TestFormState extends State<TestForm> {
               return null;
             },
             onSaved: (String value){
-              model.email = value;
+              model.vehicletype1 = value;
             },
           ),
       ),
@@ -117,7 +117,7 @@ class _TestFormState extends State<TestForm> {
                 return null;
               },
               onSaved: (String value){
-                model.email = value;
+                model.vehicletype2 = value;
               },
             ),
           ),
@@ -133,7 +133,7 @@ class _TestFormState extends State<TestForm> {
               return null;
             },
             onSaved: (String value){
-              model.password =value;
+              model.time =value;
             },
           ),
       Row(
@@ -165,7 +165,7 @@ class _TestFormState extends State<TestForm> {
                 return null;
               },
               onSaved: (String value){
-                model.email = value;
+                model.route1 = value;
               },
             ),
           ),
@@ -200,7 +200,7 @@ class _TestFormState extends State<TestForm> {
                     return null;
                   },
                   onSaved: (String value){
-                    model.email = value;
+                    model.route2 = value;
                   },
                 ),
               ),
@@ -215,7 +215,7 @@ class _TestFormState extends State<TestForm> {
               return null;
             },
             onSaved: (String value){
-              model.password =value;
+              model.purpose =value;
             },
           ),
       Row(
@@ -293,7 +293,8 @@ class MyTextFormField extends StatelessWidget {
       padding: EdgeInsets.all(7.0),
       child: TextFormField(
         decoration: InputDecoration(
-          hintText: hintText,
+
+          labelText: hintText,
           contentPadding: EdgeInsets.all(15.0),
           border: InputBorder.none,
           filled: true,
