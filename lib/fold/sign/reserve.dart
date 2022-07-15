@@ -55,6 +55,13 @@ class _TestFormState extends State<TestForm> {
       key: _formKey,
       child: Column(
         children: <Widget>[
+          SizedBox(height: 20.0,),
+          Text ("Reservation Form", style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),),
+
+          SizedBox(height: 20.0,),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -62,10 +69,10 @@ class _TestFormState extends State<TestForm> {
                 alignment: Alignment.topCenter,
                 width: halfMediaWidth,
                 child: MyTextFormField(
-                  hintText: 'First Name',
+                  hintText: 'ID no.',
                   validator: (String value){
                     if(value.isEmpty){
-                      return 'Enter Your First Name';
+                      return 'Enter Your ID no.';
                     }
                     return null;
                   },
@@ -74,30 +81,21 @@ class _TestFormState extends State<TestForm> {
                   },
                 ),
               ),
-              Container(
-                alignment: Alignment.topCenter,
-                width: halfMediaWidth,
-                child: MyTextFormField(
-                  hintText: 'Last Name',
-                  validator: (String value){
-                    if(value.isEmpty){
-                      return 'Enter Your Last Name';
-                    }
-                    return null;
-                  },
-                  onSaved: (String value){
-                    model.lastName = value;
-                  },
-                ),
-              ),
+
             ],
           ),
-          MyTextFormField(
-            hintText: 'Email',
+      Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+      Container(
+      alignment: Alignment.topCenter,
+        width: halfMediaWidth,
+        child:MyTextFormField(
+            hintText: 'Vehicle Type1',
             isEmail: true,
             validator: (String value){
               if(!validator.isEmail(value)){
-                return 'Please enter a valid email';
+                return 'Please enter a valid vehicle type';
               }
               return null;
             },
@@ -105,13 +103,32 @@ class _TestFormState extends State<TestForm> {
               model.email = value;
             },
           ),
+      ),
+          Container(
+            alignment: Alignment.topCenter,
+            width: halfMediaWidth,
+            child:MyTextFormField(
+              hintText: 'Vehicle Type2',
+              isEmail: true,
+              validator: (String value){
+                if(!validator.isEmail(value)){
+                  return 'Please enter a valid vehicle type';
+                }
+                return null;
+              },
+              onSaved: (String value){
+                model.email = value;
+              },
+            ),
+          ),
+
+        ],
+      ),
           MyTextFormField(
-            hintText: 'Password',
+
+            hintText: 'Time',
             isPassword: true,
             validator: (String value){
-              if(value.length<7){
-                return 'password too short';
-              }
               _formKey.currentState!.save();
               return null;
             },
@@ -119,24 +136,97 @@ class _TestFormState extends State<TestForm> {
               model.password =value;
             },
           ),
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+      Container(
+      alignment: Alignment.topCenter,
+        width: halfMediaWidth,
+        child:
           MyTextFormField(
-            hintText: 'Confirm Password',
+            hintText: 'Route1 start',
             isPassword: true,
             validator: (String value){
-              if(value.length<7){
-                return 'password too short';
-              }
-              else if (model.password != null && value != model.password) {
-                return 'password not matched';
-              }
+
               return null;
             },  onSaved: (String? value) {
             // This optional block of code can be used to run
             // code when the user saves the form.
           },
           ),
+      ),
+          Container(
+            alignment: Alignment.topCenter,
+            width: halfMediaWidth,
+            child:MyTextFormField(
+              hintText: 'Route1 End',
+              isEmail: true,
+              validator: (String value){
+                return null;
+              },
+              onSaved: (String value){
+                model.email = value;
+              },
+            ),
+          ),
+        ],
+      ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                alignment: Alignment.topCenter,
+                width: halfMediaWidth,
+                child:
+                MyTextFormField(
+                  hintText: 'Route2 start',
+                  isPassword: true,
+                  validator: (String value){
+
+                    return null;
+                  },  onSaved: (String? value) {
+                  // This optional block of code can be used to run
+                  // code when the user saves the form.
+                },
+                ),
+              ),
+              Container(
+                alignment: Alignment.topCenter,
+                width: halfMediaWidth,
+                child:MyTextFormField(
+                  hintText: 'Route2 End',
+                  isEmail: true,
+                  validator: (String value){
+                    return null;
+                  },
+                  onSaved: (String value){
+                    model.email = value;
+                  },
+                ),
+              ),
+            ],
+          ),
+          MyTextFormField(
+
+            hintText: 'Purpose',
+            isPassword: true,
+            validator: (String value){
+              _formKey.currentState!.save();
+              return null;
+            },
+            onSaved: (String value){
+              model.password =value;
+            },
+          ),
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+      Container(
+      alignment: Alignment.topRight,
+        width: halfMediaWidth,
+        child:
           RaisedButton(
-            color: Colors.blueAccent,
+            color: Colors.green,
             child: Text(
               'Confirm',
               style: TextStyle(
@@ -152,9 +242,27 @@ class _TestFormState extends State<TestForm> {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => Result(model: this.model)));
               }
             },
-          )
+          ),
+    ),
+    Container(
+    alignment: Alignment.topCenter,
+    width: halfMediaWidth,
+    child: RaisedButton(
+        color: Colors.red,
+        child: Text(
+          'Cancel',
+          style: TextStyle(
+            color: Colors.white,
+
+          ),
+        ),
+        onPressed:(){}
+      )
+    ),
         ],
       ),
+    ],
+    ),
     );
   }
   @override
