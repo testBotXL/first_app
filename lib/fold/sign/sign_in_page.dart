@@ -1,6 +1,7 @@
 import 'package:first_app/common_widgets/custom_raised_button.dart';
 import 'package:first_app/fold/sign/registration.dart';
 import 'package:first_app/fold/sign/reservation.dart';
+import 'package:first_app/fold/sign/reserve.dart';
 import 'package:first_app/fold/sign/sign_in_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,7 @@ class SignInPage extends StatelessWidget {
         textColor: Colors.black87,
         color: Colors.blueAccent,
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()),);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Reservation()),);
         },
         ),
         ],

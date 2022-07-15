@@ -8,13 +8,18 @@ class SignupPage extends StatelessWidget {
 
       backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 0,
-        brightness: Brightness.light,
-        backgroundColor: Colors.white,
-        leading:
-        IconButton( onPressed: (){
-          Navigator.pop(context);
-        },icon:Icon(Icons.arrow_back_ios,size: 20,color: Colors.black,)),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Vehicle Tracker'),
+              alignment: Alignment.center,
+            )
+          ],
+        ),
+        elevation: 15.0,
+        leading: Image.asset('images/just.png'),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -29,15 +34,12 @@ class SignupPage extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text ("Sign up", style: TextStyle(
+                        SizedBox(height: 150,),
+                        Text ("Register Now!", style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
                         ),),
-                        SizedBox(height: 20,),
-                        Text("Create an Account,Its free",style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.grey[700],
-                        ),),
+
                         SizedBox(height: 30,)
                       ],
                     ),
@@ -70,9 +72,10 @@ class SignupPage extends StatelessWidget {
                           minWidth: double.infinity,
                           height:60,
                           onPressed: (){},
-                          color: Colors.redAccent,
+                          color: Colors.blueAccent,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(40)
+
+                              borderRadius: BorderRadius.circular(12.0)
                           ),
                           child: Text("Sign Up",style: TextStyle(
                             fontWeight: FontWeight.w600,fontSize: 16,
@@ -82,16 +85,7 @@ class SignupPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 20,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Already have an account? "),
-                        Text("Login",style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18
-                        ),),
-                      ],
-                    )
+
                   ],
 
                 ),
