@@ -92,7 +92,7 @@ class _TestFormState extends State<TestForm> {
         width: halfMediaWidth,
         child:MyTextFormField(
             hintText: 'Vehicle Type1',
-            isEmail: true,
+            isFilled: true,
             validator: (String value){
               if(!validator.isEmail(value)){
                 return 'Please enter a valid vehicle type';
@@ -109,7 +109,7 @@ class _TestFormState extends State<TestForm> {
             width: halfMediaWidth,
             child:MyTextFormField(
               hintText: 'Vehicle Type2',
-              isEmail: true,
+              isFilled: true,
               validator: (String value){
                 if(!validator.isEmail(value)){
                   return 'Please enter a valid vehicle type';
@@ -127,7 +127,7 @@ class _TestFormState extends State<TestForm> {
           MyTextFormField(
 
             hintText: 'Time',
-            isPassword: true,
+            isFilled: true,
             validator: (String value){
               _formKey.currentState!.save();
               return null;
@@ -145,7 +145,7 @@ class _TestFormState extends State<TestForm> {
         child:
           MyTextFormField(
             hintText: 'Route1 start',
-            isPassword: true,
+            isFilled: true,
             validator: (String value){
 
               return null;
@@ -160,7 +160,7 @@ class _TestFormState extends State<TestForm> {
             width: halfMediaWidth,
             child:MyTextFormField(
               hintText: 'Route1 End',
-              isEmail: true,
+              isFilled: true,
               validator: (String value){
                 return null;
               },
@@ -180,7 +180,7 @@ class _TestFormState extends State<TestForm> {
                 child:
                 MyTextFormField(
                   hintText: 'Route2 start',
-                  isPassword: true,
+                  isFilled: true,
                   validator: (String value){
 
                     return null;
@@ -195,7 +195,7 @@ class _TestFormState extends State<TestForm> {
                 width: halfMediaWidth,
                 child:MyTextFormField(
                   hintText: 'Route2 End',
-                  isEmail: true,
+                  isFilled: true,
                   validator: (String value){
                     return null;
                   },
@@ -209,7 +209,7 @@ class _TestFormState extends State<TestForm> {
           MyTextFormField(
 
             hintText: 'Purpose',
-            isPassword: true,
+            isFilled: true,
             validator: (String value){
               _formKey.currentState!.save();
               return null;
@@ -276,16 +276,15 @@ class MyTextFormField extends StatelessWidget {
   final String hintText;
   final Function validator;
   final Function onSaved;
-  final bool isPassword;
-  final bool isEmail;
+  final bool isFilled;
 
 
   MyTextFormField({
     required this.hintText,
     required this.validator,
     required this.onSaved,
-    this.isPassword = false,
-    this.isEmail = false,
+    this.isFilled = false,
+
   });
   @override
   Widget build(BuildContext context) {
@@ -300,9 +299,9 @@ class MyTextFormField extends StatelessWidget {
           filled: true,
           fillColor: Colors.grey[200],
         ),
-        obscureText: isPassword ? true : false,
+
         
-        keyboardType: isEmail ? TextInputType.emailAddress : TextInputType.text,
+        keyboardType: isFilled ? TextInputType.number : TextInputType.text,
       ),
     );
 
