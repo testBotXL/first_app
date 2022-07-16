@@ -84,46 +84,46 @@ class _TestFormState extends State<TestForm> {
 
             ],
           ),
-      Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-      Container(
-      alignment: Alignment.topCenter,
-        width: halfMediaWidth,
-        child:MyTextFormField(
-            hintText: 'Vehicle Type1',
-            isFilled: true,
-            validator: (String value){
-              if(!validator.isEmail(value)){
-                return 'Please enter a valid vehicle type';
-              }
-              return null;
-            },
-            onSaved: (String value){
-              model.vehicletype1 = value;
-            },
-          ),
-      ),
-          Container(
-            alignment: Alignment.topCenter,
-            width: halfMediaWidth,
-            child:MyTextFormField(
-              hintText: 'Vehicle Type2',
-              isFilled: true,
-              validator: (String value){
-                if(!validator.isEmail(value)){
-                  return 'Please enter a valid vehicle type';
-                }
-                return null;
-              },
-              onSaved: (String value){
-                model.vehicletype2 = value;
-              },
-            ),
-          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Container(
+                alignment: Alignment.topCenter,
+                width: halfMediaWidth,
+                child:MyTextFormField(
+                  hintText: 'Vehicle Type1',
+                  isFilled: true,
+                  validator: (String value){
+                    if(!validator.isFloat(value)){
+                      return 'Please enter a valid vehicle type';
+                    }
+                    return null;
+                  },
+                  onSaved: (String value){
+                    model.vehicletype1 = value;
+                  },
+                ),
+              ),
+              Container(
+                alignment: Alignment.topCenter,
+                width: halfMediaWidth,
+                child:MyTextFormField(
+                  hintText: 'Vehicle Type2',
+                  isFilled: true,
+                  validator: (String value){
+                    if(!validator.isEmail(value)){
+                      return 'Please enter a valid vehicle type';
+                    }
+                    return null;
+                  },
+                  onSaved: (String value){
+                    model.vehicletype2 = value;
+                  },
+                ),
+              ),
 
-        ],
-      ),
+            ],
+          ),
           MyTextFormField(
 
             hintText: 'Time',
@@ -136,41 +136,41 @@ class _TestFormState extends State<TestForm> {
               model.time =value;
             },
           ),
-      Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-      Container(
-      alignment: Alignment.topCenter,
-        width: halfMediaWidth,
-        child:
-          MyTextFormField(
-            hintText: 'Route1 start',
-            isFilled: true,
-            validator: (String value){
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                alignment: Alignment.topCenter,
+                width: halfMediaWidth,
+                child:
+                MyTextFormField(
+                  hintText: 'Route1 start',
+                  isFilled: true,
+                  validator: (String value){
 
-              return null;
-            },  onSaved: (String? value) {
-            // This optional block of code can be used to run
-            // code when the user saves the form.
-          },
+                    return null;
+                  },  onSaved: (String? value) {
+                  // This optional block of code can be used to run
+                  // code when the user saves the form.
+                },
+                ),
+              ),
+              Container(
+                alignment: Alignment.topCenter,
+                width: halfMediaWidth,
+                child:MyTextFormField(
+                  hintText: 'Route1 End',
+                  isFilled: true,
+                  validator: (String value){
+                    return null;
+                  },
+                  onSaved: (String value){
+                    model.route1 = value;
+                  },
+                ),
+              ),
+            ],
           ),
-      ),
-          Container(
-            alignment: Alignment.topCenter,
-            width: halfMediaWidth,
-            child:MyTextFormField(
-              hintText: 'Route1 End',
-              isFilled: true,
-              validator: (String value){
-                return null;
-              },
-              onSaved: (String value){
-                model.route1 = value;
-              },
-            ),
-          ),
-        ],
-      ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -218,51 +218,51 @@ class _TestFormState extends State<TestForm> {
               model.purpose =value;
             },
           ),
-      Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-      Container(
-      alignment: Alignment.topRight,
-        width: halfMediaWidth,
-        child:
-          RaisedButton(
-            color: Colors.green,
-            child: Text(
-              'Confirm',
-              style: TextStyle(
-                color: Colors.white,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                alignment: Alignment.topRight,
+                width: halfMediaWidth,
+                child:
+                RaisedButton(
+                  color: Colors.green,
+                  child: Text(
+                    'Confirm',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  onPressed:(){
+                    if(_formKey.currentState!.validate()){
+
+                      _formKey.currentState?.save();
+
+
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Result(model: this.model)));
+                    }
+                  },
+                ),
               ),
-            ),
-            onPressed:(){
-              if(_formKey.currentState!.validate()){
+              Container(
+                  alignment: Alignment.topCenter,
+                  width: halfMediaWidth,
+                  child: RaisedButton(
+                      color: Colors.red,
+                      child: Text(
+                        'Cancel',
+                        style: TextStyle(
+                          color: Colors.white,
 
-                _formKey.currentState?.save();
-
-
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Result(model: this.model)));
-              }
-            },
+                        ),
+                      ),
+                      onPressed:(){}
+                  )
+              ),
+            ],
           ),
-    ),
-    Container(
-    alignment: Alignment.topCenter,
-    width: halfMediaWidth,
-    child: RaisedButton(
-        color: Colors.red,
-        child: Text(
-          'Cancel',
-          style: TextStyle(
-            color: Colors.white,
-
-          ),
-        ),
-        onPressed:(){}
-      )
-    ),
         ],
       ),
-    ],
-    ),
     );
   }
   @override
@@ -292,16 +292,13 @@ class MyTextFormField extends StatelessWidget {
       padding: EdgeInsets.all(7.0),
       child: TextFormField(
         decoration: InputDecoration(
-
           labelText: hintText,
           contentPadding: EdgeInsets.all(15.0),
           border: InputBorder.none,
           filled: true,
           fillColor: Colors.grey[200],
         ),
-
-        
-        keyboardType: isFilled ? TextInputType.number : TextInputType.text,
+        keyboardType: TextInputType.text,
       ),
     );
 
